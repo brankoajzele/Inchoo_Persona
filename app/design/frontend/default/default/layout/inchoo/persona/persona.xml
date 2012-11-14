@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Branko Ajzele <ajzele@gmail.com>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<layout version="0.1.0">    
+    <default>
+        
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/inchoo/persona/persona-buttons.css</stylesheet></action>
+            
+            <block type="inchoo_persona/logic" name="inchoo_persona_logic" template="inchoo/persona/logic.phtml" />
+        </reference>
+        
+        <reference name="top.links">
+            <block type="inchoo_persona/button" name="inchoo_persona_button" template="inchoo/persona/button.phtml" />
+            
+            <action method="addLinkBlock" translate="label title" module="inchoo_persona">
+                <blockName>inchoo_persona_button</blockName>
+            </action>
+        </reference>
+                
+        <reference name="before_body_end">
+            <block type="inchoo_persona/library" name="inchoo_persona_library" template="inchoo/persona/library.phtml" />
+        </reference>
+        
+    </default>    
+</layout>

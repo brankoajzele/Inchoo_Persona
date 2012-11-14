@@ -1,0 +1,59 @@
+<?php $_helper = $this->helper('inchoo_persona') ?>
+<!-- START Mozila Persona -->
+<script type="text/javascript">
+//<![CDATA[
+
+document.observe("dom:loaded", function() {
+
+    $$('a[href*="customer/account/logout"]').each(function(e) {
+        e.onclick = function(event) { 
+            event.preventDefault(); navigator.id.logout(); 
+        }
+    });
+    
+    var signinLink = document.getElementById('persona_signin');
+    
+    if (signinLink) {
+        signinLink.onclick = function() { navigator.id.request({
+            siteName: '<?php echo Mage::getStoreConfig('design/head/default_title') ?>' 
+        });};
+    }
+
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+    var currentUser = '<?php echo Mage::getSingleton('customer/session')->getCustomer()->getEmail() ?>';
+<?php else: ?>
+    var currentUser = null;            
+<?php endif; ?>
+    
+    navigator.id.watch({
+        loggedInUser: currentUser,
+        onlogin: function(assertion) {
+            new Ajax.Request('<?php echo $_helper->getLoginUrl() ?>', {
+                method: 'post',
+                parameters: {assertion: assertion},
+                onSuccess: function(response) {
+                    window.location.reload();
+                },
+                onFailure: function(response) {
+                    //TODO
+                }
+            });
+        },
+        onlogout: function(assertion) {
+            new Ajax.Request('<?php echo $_helper->getLogoutUrl() ?>', {
+                method: 'post',
+                parameters: {assertion: assertion},
+                onSuccess: function(response) {
+                    window.location.href = '<?php echo $this->getUrl('customer/account/logoutSuccess') ?>';
+                },
+                onFailure: function(response) {
+                    //TODO
+                }
+            });
+        }
+    });
+});
+
+//]]>
+</script>
+<!-- END Mozila Persona -->

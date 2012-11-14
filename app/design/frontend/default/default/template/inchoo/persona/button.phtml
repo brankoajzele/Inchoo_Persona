@@ -1,0 +1,16 @@
+<?php
+$cssClass = '';
+$color = $this->getColor();
+
+if ('black' === $color) { $cssClass = ' dark'; }
+if ('blue' === $color) { $cssClass = ''; }
+if ('red' === $color) { $cssClass = ' orange'; }
+?>
+<li>
+    <a 
+        id="persona_signin" 
+        href="javascript:void(0);" 
+        class="persona-button<?php echo $cssClass ?>">
+            <span><?php echo $this->getLabel() ?></span>
+    </a>
+</li>

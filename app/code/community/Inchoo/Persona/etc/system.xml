@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Branko Ajzele <ajzele@gmail.com>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <inchoo_persona translate="label" module="inchoo_persona">
+            <label>Mozilla Persona</label>
+            <tab>service</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Mozilla Persona Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <button_label translate="label">
+                            <label>Label</label>
+                            <comment><![CDATA[Custom label for the Persona login button. Default value is set to "Sign in".]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_label>
+                        <button_position translate="label">
+                            <label>Position</label>
+                            <comment><![CDATA[Controls the position of the Persona login button in the main navigation menu. Please use integer value. Default value is set to 9999.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_position>
+                        <button_color translate="label">
+                            <label>Color</label>
+                            <comment><![CDATA[Select the color of the button. Colors listed here are the same one defined under <a href="https://developer.mozilla.org/en-US/docs/persona/branding.">Mozilla Persona Branding resources</a> page.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>inchoo_persona/config_button_color</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_color>
+                        <mozilla_verifier_service_url>
+                            <label>Mozilla Verifier Service Url</label>
+                            <comment><![CDATA[Assertion verification service by Mozilla, defaults to "https://verifier.login.persona.org/verify" value. Please do not change this value unless you know what you exactly are doing :). Read the "Step 4" <a href="https://developer.mozilla.org/en-US/docs/Persona/Quick_Setup">Persona - Quick_Setup for more info</a>.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </mozilla_verifier_service_url>
+                    </fields>
+                </settings>
+            </groups>
+        </inchoo_persona>
+    </sections>
+</config>

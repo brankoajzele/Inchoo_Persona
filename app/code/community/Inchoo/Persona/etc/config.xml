@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Branko Ajzele <ajzele@gmail.com>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Inchoo_Persona>
+            <version>1.0.0.0.0.0</version>
+        </Inchoo_Persona>
+    </modules>    
+    <global>
+        <models>
+            <inchoo_persona>
+                <class>Inchoo_Persona_Model</class>
+            </inchoo_persona>
+        </models>        
+        <blocks>
+            <inchoo_persona>
+                <class>Inchoo_Persona_Block</class>
+            </inchoo_persona>
+        </blocks>
+        <helpers>
+            <inchoo_persona>
+                <class>Inchoo_Persona_Helper</class>
+            </inchoo_persona>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <inchoo_persona>
+                <use>standard</use>
+                <args>
+                    <module>Inchoo_Persona</module>
+                    <frontName>persona</frontName>
+                </args>
+            </inchoo_persona>
+        </routers>        
+        <layout>
+            <updates>
+                <inchoo_persona>
+                    <file>inchoo/persona/persona.xml</file>
+                </inchoo_persona>
+            </updates>
+        </layout>
+    </frontend> 
+    
+    <default>
+        <inchoo_persona>
+            <settings>
+                <active><![CDATA[0]]></active>
+                <button_label><![CDATA[Sign in]]></button_label>
+                <button_position><![CDATA[9999]]></button_position>
+                <button_color><![CDATA[red]]></button_color>
+                <mozilla_verifier_service_url><![CDATA[https://verifier.login.persona.org/verify]]></mozilla_verifier_service_url>
+            </settings>          
+        </inchoo_persona>
+    </default>                
+</config>
